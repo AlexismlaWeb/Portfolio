@@ -1,0 +1,171 @@
+.header {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px 40px;
+  position: relative;
+}
+
+.icon {
+  color: #7c98b3;
+  cursor: pointer;
+}
+
+.icon_contact {
+  margin: 10px 15px;
+  color: #7c98b3;
+  cursor: pointer;
+}
+
+.title {
+  text-align: left;
+  font-weight: bold;
+  font-size: 20px;
+  color: white;
+  position: relative;
+}
+
+.title:before {
+  content: "Alexis Melia";
+  position: absolute;
+  width: 15%;
+  height: 100%;
+  overflow: hidden;
+  color: #7c98b3;
+  border-right: 3px solid #7c98b3;
+  transition: 1s ease-in-out;
+}
+
+.title:hover::before {
+  width: 110%;
+  filter: drop-shadow(0 0 25px lightblue);
+}
+.group-button {
+  display: flex;
+  justify-content: flex-end;
+  width: 40%;
+  align-items: center;
+}
+
+.button-outline {
+  border-radius: 16px;
+  border: 2px solid #7c98b3;
+  color: #7c98b3;
+  width: 90px;
+  height: 45px;
+  background-color: white;
+  margin: 0px 10px;
+}
+
+.button-outline:hover {
+  background-color: #7c98b3;
+  transition: 0.5s;
+  color: white;
+}
+
+.button-outline-contact {
+  border-radius: 16px;
+  border: 2px solid #7c98b3;
+  color: #7c98b3;
+  width: 150px;
+  height: 45px;
+  background-color: white;
+  margin: 0px 10px;
+}
+
+.link {
+  color: black;
+}
+
+.button {
+  border-radius: 16px;
+  color: white;
+  background-color: #7c98b3;
+  border: 2px solid #7c98b3;
+  width: 90px;
+  height: 45px;
+}
+
+.button:hover {
+  background-color: white;
+  transition: 0.2s;
+  color: #7c98b3;
+  border: 2px solid #7c98b3;
+}
+
+.button-transparent {
+  background-color: white;
+  color: black;
+  border: none;
+  margin: 0px 10px;
+}
+
+.button-transparent:hover {
+  color: #7c98b3;
+  transition: 0.5s;
+}
+
+.navbar-hidden {
+  display: none;
+}
+
+@media (max-width: 820px) {
+  .icon_contact {
+    display: none;
+  }
+
+  .hidden-button {
+    display: none;
+  }
+
+  .group-button {
+    display: contents;
+  }
+
+  .navbar-menu {
+    display: block;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    flex-direction: column;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+  }
+
+  .navbar-items {
+    text-align: center;
+    margin: 0;
+    margin-bottom: 1%;
+    padding-bottom: 1%;
+    margin: 5px 25px;
+  }
+
+  .navbar-items:hover {
+    background-color: #7c98b30d;
+  }
+
+  .navbar-items a {
+    color: black;
+    width: 100%;
+    margin: 1.5rem 0;
+    text-decoration: none;
+  }
+
+  .navbar-items a:hover {
+    color: black;
+  }
+}
+
+@media (min-width: 820px) {
+  .icon {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: none;
+    transition: opacity 1s ease-out;
+    opacity: 0;
+  }
+}
