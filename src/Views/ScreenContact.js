@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
 
 import "../App.css";
 import "../contact.css";
-
 import Header from "../composants/header";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function ScreenContact() {
-  const [form, setForm] = useState({ nom: "", email: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [errorMessage, setErrorMessage] = useState({
     all: false,
     message: false,
-    nom: false,
+    name: false,
     email: false,
     content: "",
   });
@@ -29,22 +29,22 @@ function ScreenContact() {
   const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
 
   const handleClick = () => {
-    if (!form.message && !form.nom && !form.email) {
+    if (!form.message && !form.name && !form.email) {
       setErrorMessage({
         all: true,
-        content: "Ces champs sont obligatoire (all)",
+        content: "Ces champs sont obligatoire",
       });
-    } else if (!form.nom || form.nom.length < 3) {
-      if (!form.nom) {
+    } else if (!form.name || form.name.length < 3) {
+      if (!form.name) {
         setErrorMessage({
-          nom: true,
-          content: "Il semble que le champ 'nom' soit vide",
+          name: true,
+          content: "Il semble que le champ 'Nom' soit vide",
         });
       } else {
         setErrorMessage({
-          nom: true,
+          name: true,
           content:
-            "Le champ 'nom' doit contenir au moins trois lettres. Veuillez entrer un nom valide et réessayer ",
+            "Le champ 'name' doit contenir au moins trois lettres. Veuillez entrer un name valide et réessayer ",
         });
       }
     } else if (!form.email) {
@@ -57,18 +57,18 @@ function ScreenContact() {
         message: true,
         content: "Ce champ est obligatoire (message)",
       });
-    } else if (form.nom && form.email && form.message) {
+    } else if (form.name && form.email && form.message) {
       if (validateEmailRegex.test(form.email) === false) {
         setErrorMessage({
           email: true,
           content:
             "Il semble que l'adresse e-mail que vous avez entrée ne soit pas valide",
         });
-      } else if (validateNameRegex.test(form.nom) === false) {
+      } else if (validateNameRegex.test(form.name) === false) {
         setErrorMessage({
-          nom: true,
+          name: true,
           content:
-            "Il semble que champ 'nom' auquel vous êtes entrée ne soit pas valide seule les lettres sont autorisées",
+            "Il semble que champ 'name' auquel vous êtes entrée ne soit pas valide seule les lettres sont autorisées",
         });
       } else {
         setHandleShow({
@@ -76,7 +76,7 @@ function ScreenContact() {
           display: "flex",
           validateForm: `Merci d'avoir rempli le formulaire de contact.`,
         });
-        setForm({ nom: "", email: "", message: "" });
+        setForm({ name: "", email: "", message: "" });
         setErrorMessage({
           ...errorMessage,
           all: false,
@@ -84,8 +84,32 @@ function ScreenContact() {
           email: false,
           content: "",
         });
+
+        sendEmail();
       }
     }
+  };
+
+  const sendEmail = () => {
+    emailjs
+      .send(
+        "service_19dkw7b",
+        "template_ccr7o8p",
+        {
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        },
+        "72PeH7n2MXRVHsK8W"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
 
   return (
@@ -105,7 +129,7 @@ function ScreenContact() {
           }}
           className="body_center"
         >
-          <h3>
+          <h3 className="titre">
             Merci d'avoir pris le temps de me contacter. Comment puis-je vous
             aider aujourd'hui?
           </h3>
@@ -166,15 +190,15 @@ function ScreenContact() {
               <label>Nom</label>
               <input
                 type="text"
-                name="nom"
+                name="name"
                 className="input_form"
-                value={form.nom}
+                value={form.name}
                 style={
-                  errorMessage.all || errorMessage.nom
+                  errorMessage.all || errorMessage.name
                     ? { borderColor: "red" }
                     : null
                 }
-                onChange={(e) => setForm({ ...form, nom: e.target.value })}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
             </div>
             <div className="column_half">
@@ -212,7 +236,7 @@ function ScreenContact() {
           <motion.div
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
-            style={{ marginTop: "6vh" }}
+            style={{ marginTop: "6vh", marginBottom: "3vh" }}
           >
             <button
               name="envoyer"

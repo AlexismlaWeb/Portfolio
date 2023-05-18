@@ -48,4 +48,16 @@
     display: flex;
     flex-direction: column;
   }
+
+  .footer {
+    height: 25vh;
+  }
+
+  .footer_colonne {
+    margin-bottom: 5vh;
+  }
+
+  .logo_footer {
+    margin: 0px 60px;
+  }
 }

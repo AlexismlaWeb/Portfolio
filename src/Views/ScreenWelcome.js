@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -9,30 +9,48 @@ import Footer from "../composants/footer";
 import Lottie from "lottie-react";
 import menRelax from "../lotties/men-relaxing-on-working-chair.json";
 
-import logo_backend from "../images/front-end.png";
-import logo_frontend from "../images/ux.png";
+import logo_backend from "../images/logo/front-end.png";
+import logo_frontend from "../images/logo/ux.png";
 
-import logo_typecsript from "../images/typescript.png";
-import logo_css from "../images/icon-css.png";
-import logo_nextjs from "../images/nextjs.png";
-import logo_javascript from "../images/JavaScript_logo.png";
-import logo_html from "../images/html-icon.png";
-import logo_nodejs from "../images/nodejs.png";
-import logo_reactjs from "../images/reactjs-icon.jpg";
-import logo_redux from "../images/redux.png";
-import logo_mongodb from "../images/mongodb-icon.png";
-import logo_express from "../images/expressjs_logo.png";
-import logo_golang from "../images/golang.svg";
+import logo_typecsript from "../images/logo/typescript.png";
+import logo_css from "../images/logo/icon-css.png";
+import logo_nextjs from "../images/logo/nextjs.png";
+import logo_javascript from "../images/logo/JavaScript_logo.png";
+import logo_html from "../images/logo/html-icon.png";
+import logo_nodejs from "../images/logo/nodejs.png";
+import logo_reactjs from "../images/logo/reactjs-icon.jpg";
+import logo_redux from "../images/logo/redux.png";
+import logo_mongodb from "../images/logo/mongodb-icon.png";
+import logo_express from "../images/logo/expressjs_logo.png";
+import logo_golang from "../images/logo/golang.svg";
+
+import cover_golfapp from "../images/golfapp/cover_golfapp.PNG";
+import cover_portfolio from "../images/portfolio/cover_portfolio.PNG";
+import cover_award from "../images/award/cover_award.PNG";
+import cover_behappy from "../images/behappy/cover_behappy.PNG";
 
 function ScreenWelcome() {
   const navigate = useNavigate();
+  const [show, setShow] = useState(false);
+  const visible = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
   const clickNavigate = (link) => {
     console.log(link);
     navigate(link);
   };
 
-  const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
+  const HandleClickProject = (name) => {
+    setShow(!show);
+    console.log("okoko", name);
+    navigate("/Project", {
+      state: {
+        projectName: name,
+      },
+    });
+  };
 
   return (
     <motion.div
@@ -57,15 +75,16 @@ function ScreenWelcome() {
         <div className="content">
           <div className="text">
             <h3 className="titre main-titre">
-              Hi, I’m Alexis. Nice to meet you.
+              Bonjour, je suis Alexis. Ravi de vous rencontrer
             </h3>
             <h5 className="paragraph">
-              Since beginning my journey as a freelance designer over 11 years
-              ago, I've done remote work for agencies, consulted for startups,
-              and collaborated with talented people to create digital products
-              for both business and consumer use. I'm quietly confident,
-              naturally curious, and perpetually working on improving my chops
-              one design problem at a time.
+              Un développeur web qui a suivi deux formations et a acquis de
+              l'expérience grâce à un stage. J'ai développé des compétences en
+              programmation et en conception de sites web, et je suis passionné
+              par l'utilisation de la technologie pour améliorer l'experience
+              utilisateure. Toujours partant pour de nouvelles aventures et pour
+              continuer à apprendre et à développer mes compétences en
+              développement web.
             </h5>
           </div>
         </div>
@@ -166,67 +185,89 @@ function ScreenWelcome() {
           </p>
           <div className="group_project">
             <div className="project">
-              <p>Project</p>
+              <img
+                src={cover_behappy}
+                alt="Behappy app"
+                style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+                className="project_img"
+                onClick={() => {
+                  HandleClickProject("Behappy");
+                }}
+              />
             </div>
             <div className="project">
-              <p>Project</p>
+              <img
+                src={cover_portfolio}
+                alt="portfolio"
+                style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+                className="project_img"
+                onClick={() => {
+                  HandleClickProject("portfolio");
+                }}
+              />
             </div>
             <div className="project">
-              <p>Project</p>
+              <img
+                src={cover_golfapp}
+                alt="golf app"
+                style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+                className="project_img"
+                onClick={() => {
+                  HandleClickProject("golfapp");
+                }}
+              />
             </div>
+
             <div className="project">
-              <p>Project</p>
-            </div>
-            <div className="project">
-              <p>Project</p>
-            </div>
-            <div className="project">
-              {/* <Carousel>
-              <Carousel.Item>
-                <img src={test} alt="ok" />
-                <Carousel.Caption>
-                  <h3>Project</h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img src={Golfmodern} alt="ok" />
-                <Carousel.Caption>
-                  <h3>Project</h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>{" "} */}
-              <p>Project</p>
+              <img
+                src={cover_award}
+                alt="award app"
+                style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+                className="project_img"
+                onClick={() => {
+                  HandleClickProject("award 2021");
+                }}
+              />
             </div>
           </div>
-          <div className="body">
-            <button className="button-outline-contact button-outline">
-              See more
-            </button>
+          <div className="body" style={{ marginTop: "20px" }}>
+            <motion.div
+              whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <button
+                className="button_img button-outline-contact button-outline"
+                onClick={() => {
+                  window.open("https://github.com/AlexismlaWeb");
+                }}
+              >
+                <span style={{ width: "100%" }}>Voir plus</span>
+              </button>
+            </motion.div>
           </div>
         </div>
         <div className="contact_cv_row">
           <h4>Commencer un projet</h4>
-          <h6 style={{ fontWeight: "300", fontSize: "1rem", width: "30%" }}>
+          <h6 className="startProject">
             Intéressé à travailler ensemble ? On devrait en discuter. Je vais
             acheter le café.
           </h6>
-          <button
-            className="button-outline-contact button-outline"
-            onClick={() => clickNavigate("/Contact")}
+          <motion.div
+            whileHover={{ scale: 1.2, transition: { duration: 0.3 } }}
+            whileTap={{ scale: 0.9 }}
           >
-            C'est parti
-            <img
-              src={logo_golang}
-              alt="logo_golang"
-              style={{ width: "22%", margin: "0px 1.5vh", opacity: "0.5" }}
-            />
-          </button>
+            <button
+              className="button-outline-contact button-outline"
+              onClick={() => clickNavigate("/Contact")}
+            >
+              C'est parti
+              <img
+                src={logo_golang}
+                alt="logo_golang"
+                style={{ width: "22%", margin: "0px 1.5vh", opacity: "0.5" }}
+              />
+            </button>
+          </motion.div>
         </div>
       </motion.div>
       <Footer />

@@ -1,10 +1,10 @@
 import React from "react";
 import "../footer.css";
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import logo_github from "../images/square-github.svg";
-import logo_linkedin from "../images/linkedin.svg";
+import logo_github from "../images/logo/square-github.svg";
+import logo_linkedin from "../images/logo/linkedin.svg";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
@@ -20,16 +20,23 @@ function Footer() {
   return (
     <div className="footer">
       <div className="footer_colonne">
-        <Link to={"https://github.com/AlexismlaWeb"}>
-          <img src={logo_github} alt="logo-github" className="logo_footer" />
-        </Link>
-        <Link to={"https://www.linkedin.com/in/alexis-melia/"}>
-          <img
-            src={logo_linkedin}
-            alt="logo-linkedin"
-            className="logo_footer"
-          />
-        </Link>
+        <img
+          src={logo_github}
+          alt="logo-github"
+          className="logo_footer"
+          onClick={() => {
+            window.open("https://github.com/AlexismlaWeb");
+          }}
+        />
+
+        <img
+          onClick={() => {
+            window.open("https://www.linkedin.com/in/alexis-melia/");
+          }}
+          src={logo_linkedin}
+          alt="logo-linkedin"
+          className="logo_footer"
+        />
         <FontAwesomeIcon
           icon={faEnvelope}
           color="black"

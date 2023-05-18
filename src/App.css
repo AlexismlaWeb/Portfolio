@@ -35,7 +35,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .content {
   background-color: #f2f2f2;
-  padding: 13rem 4.5rem;
+  padding: 13rem 5.5rem;
   line-height: 1.5;
   padding-top: 6rem;
 }
@@ -64,6 +64,11 @@ body::-webkit-scrollbar-thumb:hover {
   box-shadow: 0 5px 5px 0 rgba(233, 240, 243, 0.5), 0 0 0 1px #e6ecf8;
 }
 
+.button_img {
+  display: flex;
+  align-items: center;
+}
+
 .col {
   border-right: 1px solid #e6ecf8;
   /* justify-content: center; */
@@ -78,6 +83,7 @@ body::-webkit-scrollbar-thumb:hover {
   width: 100%;
   justify-content: space-evenly;
   align-content: center;
+  margin-top: 7vh;
 }
 
 .logo {
@@ -128,19 +134,21 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .project {
-  width: 28%;
-  height: 38vh;
+  width: 40%;
+  height: 42vh;
   background-color: #888;
   margin: 15px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 
-.project:hover {
-  transition: 0.5s;
-  background-color: #dadada;
+.project_img:hover {
+  transition: 0.8s;
+  opacity: 1;
+  transform: scale(1.07);
 }
 
 .project p {
@@ -152,6 +160,12 @@ body::-webkit-scrollbar-thumb:hover {
   text-align: center;
   font-weight: 300;
   font-size: 1.2em;
+}
+
+.startProject {
+  font-weight: 300;
+  font-size: 1rem;
+  width: 30%;
 }
 
 @media (max-width: 820px) {
@@ -167,22 +181,18 @@ body::-webkit-scrollbar-thumb:hover {
   .titre {
     font-size: x-large;
   }
-
+  .title_contenent {
+    width: 40vw;
+  }
   .main-titre {
     font-weight: 500;
-    font-size: larger;
+    font-size: medium;
     margin-bottom: 5%;
-  }
-
-  .content {
-    padding-bottom: 10rem;
-    padding: 9rem 4rem;
-    padding-top: 3rem;
   }
 
   .paragraph {
     text-align: center;
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .skill {
@@ -194,22 +204,16 @@ body::-webkit-scrollbar-thumb:hover {
   }
 
   .project {
-    width: 40%;
-    height: 150px;
-  }
-
-  .group_logo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    width: 80%;
+    height: 200px;
   }
 
   .logo {
-    min-width: 20px;
-    min-height: 20px;
-    max-width: 50px;
-    max-height: 50px;
-    margin-top: 10px;
+    min-width: 40px;
+    min-height: 40px;
+    max-width: 60px;
+    max-height: 60px;
+    margin-top: 2px;
   }
 
   .cercle-icon {
@@ -224,5 +228,26 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+  }
+
+  .group_logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2vh;
+  }
+
+  .group_project {
+    margin-top: 3vh;
+    flex-direction: column;
+  }
+
+  .content {
+    padding: 4rem 2rem;
+    margin-block: 4rem;
+  }
+
+  .startProject {
+    width: 90%;
   }
 }

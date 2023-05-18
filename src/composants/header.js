@@ -1,21 +1,41 @@
 import React, { useState } from "react";
 import "../header.css";
+import Dropdown from "react-bootstrap/Dropdown";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark, faUpload } from "@fortawesome/free-solid-svg-icons";
+
+import Cv from "../fichier/CvAlexisMla.pdf";
 
 function Header() {
   const navigate = useNavigate();
 
   const [isActive, setIsActive] = useState(false);
   const location = window.location.pathname;
-
   return (
     <div className="header">
-      <h1 className="title">Alexis Melia</h1>
+      <div
+        className="title_contenent"
+        onClick={() => navigate("/")}
+        style={{ cursor: "pointer" }}
+      >
+        <h1 className="title">Alexis Melia</h1>
+      </div>
 
       <div className="group-button">
-        {location === "/Contact" ? (
+        <div className="upload">
+          <a href={Cv} download>
+            <FontAwesomeIcon
+              icon={faUpload}
+              size="lg"
+              className="icon_contact"
+            />
+          </a>
+          <div className="overlay">
+            <p className="name_logo">Vous pouvez télécharger mon C.V ici</p>
+          </div>
+        </div>
+        {location === "/Contact" || location === "/Project" ? (
           <div>
             <FontAwesomeIcon
               icon={faXmark}
@@ -33,7 +53,7 @@ function Header() {
                 navigate("/");
               }}
             >
-              Portfolio
+              Accueil
             </button>
             <button
               type="button"
@@ -46,35 +66,28 @@ function Header() {
             </button>
           </div>
         )}
-        {isActive ? (
-          <FontAwesomeIcon
-            icon={faXmark}
-            size="xl"
-            className="icon"
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-          />
-        ) : (
-          <FontAwesomeIcon
-            icon={faBars}
-            size="xl"
-            className="icon"
-            onClick={() => {
-              setIsActive(!isActive);
-            }}
-          />
-        )}
-      </div>
+        {location === "/" ? (
+          <Dropdown>
+            <Dropdown.Toggle
+              style={{ backgroundColor: "white", borderColor: "white" }}
+            >
+              <FontAwesomeIcon
+                icon={faBars}
+                size="xl"
+                className="icon"
+                onClick={() => {
+                  setIsActive(!isActive);
+                }}
+              />
+            </Dropdown.Toggle>
 
-      <div className={isActive ? "navbar-menu" : "navbar-hidden"}>
-        <div className="navbar-items">
-          <Link to={"/"}>Acceuil</Link>
-        </div>
-
-        <div className="navbar-items">
-          <Link to={"/Contact "}>Contact</Link>
-        </div>
+            <Dropdown.Menu id="dropdown-menu-align-end">
+              <Link className="navbar-items" to={"/Contact "}>
+                Contact
+              </Link>
+            </Dropdown.Menu>
+          </Dropdown>
+        ) : null}
       </div>
     </div>
   );
