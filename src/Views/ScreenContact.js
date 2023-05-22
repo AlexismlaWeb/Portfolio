@@ -74,7 +74,7 @@ function ScreenContact() {
         setHandleShow({
           ...handleShow,
           display: "flex",
-          validateForm: `Merci d'avoir rempli le formulaire de contact.`,
+          validateForm: `Merci d'avoir pris le temps de remplir le formulaire de contact.`,
         });
         setForm({ name: "", email: "", message: "" });
         setErrorMessage({
@@ -130,7 +130,7 @@ function ScreenContact() {
           className="body_center"
         >
           <h3 className="titre">
-            Merci d'avoir pris le temps de me contacter. Comment puis-je vous
+            Merci de prendre le temps de me contacter. Comment puis-je vous
             aider aujourd'hui?
           </h3>
 

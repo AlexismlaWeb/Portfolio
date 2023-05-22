@@ -75,14 +75,14 @@ function ScreenWelcome() {
         <div className="content">
           <div className="text">
             <h3 className="titre main-titre">
-              Bonjour, je suis Alexis. Ravi de vous rencontrer
+              Bonjour, je suis Alexis. Ravi de vous rencontrer !
             </h3>
             <h5 className="paragraph">
-              Un développeur web qui a suivi deux formations et a acquis de
+              Développeur web qui a suivi deux formations et a acquis de
               l'expérience grâce à un stage. J'ai développé des compétences en
               programmation et en conception de sites web, et je suis passionné
-              par l'utilisation de la technologie pour améliorer l'experience
-              utilisateure. Toujours partant pour de nouvelles aventures et pour
+              par l'utilisation de la technologie pour améliorer l'expérience
+              utilisateur. Toujours partant pour de nouvelles aventures et pour
               continuer à apprendre et à développer mes compétences en
               développement web.
             </h5>
@@ -102,25 +102,25 @@ function ScreenWelcome() {
                 <div className="logo">
                   <img src={logo_html} alt="logo-html" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">HTML</p>
+                    <p className="name_logo_project">HTML</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_css} alt="logo-css" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">CSS</p>
+                    <p className="name_logo_project">CSS</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_javascript} alt="logo-js" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">JavaScript</p>
+                    <p className="name_logo_project">JavaScript</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_reactjs} alt="logo-reactjs" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">ReactJS</p>
+                    <p className="name_logo_project">ReactJS</p>
                   </div>
                 </div>
                 <div className="logo">
@@ -130,13 +130,13 @@ function ScreenWelcome() {
                     className="logo"
                   />
                   <div className="overlay">
-                    <p className="name_logo">TypeScript</p>
+                    <p className="name_logo_project">TypeScript</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_redux} alt="logo-redux" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">Redux</p>
+                    <p className="name_logo_project">Redux</p>
                   </div>
                 </div>
               </div>
@@ -152,25 +152,25 @@ function ScreenWelcome() {
                 <div className="logo">
                   <img src={logo_nodejs} alt="logo-nodejs" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">NodeJS</p>
+                    <p className="name_logo_project">NodeJS</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_express} alt="logo-express" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">ExpressJS</p>
+                    <p className="name_logo_project">ExpressJS</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_nextjs} alt="logo-nextjs" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">NextJs</p>
+                    <p className="name_logo_project">NextJs</p>
                   </div>
                 </div>
                 <div className="logo">
                   <img src={logo_mongodb} alt="logo-mongodb" className="logo" />
                   <div className="overlay">
-                    <p className="name_logo">MongoDB</p>
+                    <p className="name_logo_project">MongoDB</p>
                   </div>
                 </div>
               </div>
@@ -241,7 +241,7 @@ function ScreenWelcome() {
                   window.open("https://github.com/AlexismlaWeb");
                 }}
               >
-                <span style={{ width: "100%" }}>Voir plus</span>
+                <span style={{ width: "100%" }}>Plus sur Github</span>
               </button>
             </motion.div>
           </div>

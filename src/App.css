@@ -99,9 +99,6 @@ body::-webkit-scrollbar-thumb:hover {
   transition: 0.5s ease;
 }
 
-.name_logo {
-  text-align: center;
-}
 .center {
   margin-top: -7rem;
   display: flex;
@@ -168,6 +165,12 @@ body::-webkit-scrollbar-thumb:hover {
   width: 30%;
 }
 
+.name_logo_project {
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
 @media (max-width: 820px) {
   .column {
     display: block;
@@ -222,12 +225,6 @@ body::-webkit-scrollbar-thumb:hover {
 
   .project p {
     font-size: 1.8em;
-  }
-
-  .name_logo {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
   }
 
   .group_logo {

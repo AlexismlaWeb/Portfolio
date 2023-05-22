@@ -4,8 +4,9 @@ import "../projectDetails.css";
 
 import Header from "../composants/header";
 import projectData from "../data/projectData.js";
-import AwesomeSlider from "react-awesome-slider";
 
+import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 import "react-awesome-slider/dist/custom-animations/open-animation.css";
 
@@ -13,6 +14,8 @@ function ScreenProjectDetails() {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+
+  const AutoplaySlider = withAutoplay(AwesomeSlider);
 
   const location = useLocation();
   const projectName = location.state.projectName;
@@ -28,15 +31,17 @@ function ScreenProjectDetails() {
       <h3 className="project_title">{Titre_Project}</h3>
       <div className="center_porject">
         <div className="carrousel">
-          <AwesomeSlider
+          <AutoplaySlider
             className="aws-btn"
             bullets={false}
             transitionDelay={400}
             animation="openAnimation"
+            play={true}
+            interval={5000}
           >
             {projectData[index].img.map((obj) => {
               return (
-                <div>
+                <div key={Math.random()}>
                   <img
                     alt={obj.slice(14, 29)}
                     src={obj}
@@ -45,7 +50,7 @@ function ScreenProjectDetails() {
                 </div>
               );
             })}
-          </AwesomeSlider>
+          </AutoplaySlider>
         </div>
         <div
           style={{

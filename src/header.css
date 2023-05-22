@@ -189,6 +189,36 @@
   .navbar-items a:hover {
     color: black;
   }
+
+  .title_contenent {
+    width: 100%;
+  }
+
+  .title:before {
+    width: 20vw;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .title:hover::before {
+    width: 48%;
+  }
+}
+
+@media (max-width: 380px) {
+  .title:before {
+    width: 24vw;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .title:hover::before {
+    width: 48%;
+  }
 }
 
 @media (min-width: 820px) {
